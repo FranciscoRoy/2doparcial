@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the '2doparcial' title`, () => {
+  it(`should have the 'clinicamedica' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('2doparcial');
+    expect(app.title).toEqual('clinicamedica');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, 2doparcial');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, clinicamedica');
   });
 });

@@ -1,0 +1,24 @@
+<p>VENTANA CENTRAL COMIENZO</p>
+
+<p>Bienvenido Usuario {{ this.usuarioActual.getTipoUsuario() }}</p>
+
+@switch(this.ventanaActivaActual){
+    @case ('inicio') {<app-inicio></app-inicio>}
+    @case ('ingreso') {<app-ingreso [tipoUsuario]=tipoUsuarioSolicitante></app-ingreso>}
+    @case ('registro') {<app-registro [tipoUsuario]=tipoUsuarioSolicitante></app-registro>}
+    @case ('datosPersonales') {<app-datospersonales></app-datospersonales>}
+
+    @case ('turnos') {<app-turnos></app-turnos>}
+    @case ('gestionTurnos') {<app-gestionturnos></app-gestionturnos>}
+
+    @case ('gestionUsuarios') {<app-gestionusuarios></app-gestionusuarios>}
+    @case ('gestionTurnosProfesional') {<app-gestionturnos-profesional></app-gestionturnos-profesional>}
+    @case ('gestionTurnosGerente') {<app-gestionturnos-gerente></app-gestionturnos-gerente>}
+
+    @case ('espera'){<app-espera [tiempoEspera]="3" [ventanaDestino]="'inicio'"></app-espera>}
+    @case ('ayuda') {<app-ayuda></app-ayuda>}
+
+    @default {<app-error></app-error>}
+}
+
+<p>VENTANA CENTRAL FINAL</p>

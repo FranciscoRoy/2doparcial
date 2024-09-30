@@ -1,0 +1,47 @@
+<p>REGISTRO ESTA FUNCIONANDO COMO {{tipoUsuario}}</p>
+
+<p>REGISTRO GENERAL</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="formularioGeneral">
+  
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text">
+    
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" formControlName="apellido" type="text">
+    
+    <label for="dni">DNI:</label>
+    <input id="dni" formControlName="dni" type="number">
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email">
+    
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password">
+    
+    <label for="foto">Foto:</label>
+    <input id="foto" formControlName="foto" type="text">
+    
+    <button type="submit" *ngIf="tipoUsuario !== 'Profesional'">Registrarse</button>
+</form>
+
+<div *ngIf="tipoUsuario === 'Profesional'">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formularioProfesional">
+
+      <label for="especialidad">Especialidad:</label>
+      <select id="especialidad" formControlName="especialidad">
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+      </select>
+      
+      <label for="diasAtencion">Días de Atención:</label>
+      <div id="diasAtencion">
+        <div *ngFor="let dia of dias">
+          <input type="checkbox" [value]="dia" (change)="onDiaChange($event)">{{ dia }}
+        </div>
+      </div>
+
+      <label for="fotoEsp">Foto de Especialidad:</label>
+      <input id="fotoEsp" formControlName="fotoEsp" type="text">
+      
+      <button type="submit">Registrarse</button>
+    </form>
+</div>
